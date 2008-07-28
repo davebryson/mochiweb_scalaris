@@ -1,0 +1,32 @@
+
+This is a simple example of how to provide an HTTP api to Scalaris via Mochiweb.
+
+Requirements:
+ - Scalaris (http://code.google.com/p/scalaris/)
+ - Mochiweb (http://code.google.com/p/mochiweb/)
+ - Erlang R12.x
+
+Build:
+ - Make a softlink to the MochiWeb ebin files in the deps directory
+ - run "make" in this directory
+
+Setup:
+ 1. Start Scalaris on your machine. See the README file in the Scalaris source.
+ 2. In the "start-dev.sh" script set the BOOT_NODE variable to the name of the Scalaris boot node ("boot@localhost")
+ 3. If you changed the -setcookie value on Scalaris, set it to the new value in "start-dev.sh"
+
+Start it up!
+ - run "./start-dev.sh" in another terminal
+
+How it works:
+  - To store a Key:Value on Scalaris: Send a post (or get) to: 
+     "http://localhost:8002/scalaris/write" with the parameters: key="your key", value="the value"
+  - To read a value from Scalaris: Send a get to:
+      "http://localhost:8002/scalaris/read" with the parameters: key="your key"
+ 
+
+See "simple_messaging_scalaris_web.erl" and "scalaris_proxy.erl" for more info.
+
+
+
+
